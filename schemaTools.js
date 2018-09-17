@@ -26,26 +26,26 @@ const typeDefs = `
 const resolvers = {
     Query: {
         customer: (_, { id }) => {
-            return axios.get('http://localhost:3000/customers/'+ id)
+            return axios.get('http://localhost:3005/customers/'+ id)
                 .then(res => res.data);
         },
         customers: () => {
-            return axios.get('http://localhost:3000/customers')
+            return axios.get('http://localhost:3005/customers')
                     .then(res => res.data);
         },
     },
     Mutation: {
         addCustomer: (_, { name, email, age }) => {
-            return axios.post('http://localhost:3000/customers', {
+            return axios.post('http://localhost:3005/customers', {
                     name, email,age 
                 }).then(res => res.data);
         },
         deleteCustomer: (_, { id }) => {
-            return axios.delete('http://localhost:3000/customers/'+id)
+            return axios.delete('http://localhost:3005/customers/'+id)
                 .then(res => res.data);
         },
         editCustomer: (_, args) => {
-            return axios.patch('http://localhost:3000/customers/'+args.id, args)
+            return axios.patch('http://localhost:3005/customers/'+args.id, args)
                 .then(res => res.data);
         }
     },
